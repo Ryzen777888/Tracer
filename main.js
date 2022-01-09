@@ -10,9 +10,9 @@ const tbody = document.querySelector("#tbody")
 const datePicker = document.querySelector('#datepicker')
 const nameInput = document.querySelector('#name')
 const descriptionInput = document.querySelector(`#description`)
-const removeBtn = document.querySelector(`#removebutton`)
-const editBtn = document.querySelector(`#editButton`)
-const deleteButton = querySelector(`#delBtn`)
+const deletebtn = document.querySelector(`#del`)
+
+
 
 const startWatch = () => {
     watch.classList.remove(`paused`)
@@ -70,6 +70,7 @@ logBtn.addEventListener('click', () => {
     render()
 })
 
+
 function render() {
     const body = data.map((item, index) => {
         return `<tr>
@@ -82,25 +83,19 @@ function render() {
     })
     tbody.innerHTML = body.join('\n')
 }
-deleteButton.addEventListener('click', () => {
-    const item = {
-        startTime: datePicker.value,
-        name: nameInput.value,
-        timeSpend: watch.innerHTML,
-        description: descriptionInput.value,
-    }
-        clearRow
-    }
-    function clearRow(){
-        objTable= document.getElementById("myTable");
-
-        for( var i=1; i<objTable.rows.length ; i++ )
-        {
-            tblObj.deleteRow(i);
-        }
-    }
-
+deletebtn.addEventListener('click', () => {
+    clearRow()
 })
+function clearRow(){
+    objTable= document.getElementById("myTable");
+
+    for( var i=1; i<objTable.rows.length ; i++ )
+    {
+        tblObj.deleteRow(i);
+    }
+}
+
+
 
 
 
